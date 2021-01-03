@@ -1,0 +1,17 @@
+# Ethereum Static Proxy
+
+A simple project that API'ifies Ethereum contracts so they can be integrated into other applications.
+
+### How to use:
+
+To use the project you need to craft URLs with the following options:
+
+- url: `proxy.blackwattle.ad/fetchContract`
+- contract: `0x443d2f2755db5942601fa062cc248aaa153313d3`
+- call: `totalSupply`
+- decimals: 18
+
+Then these are combined to create:
+
+`proxy.blackwattle.ad/fetchContract?contract=0x443d2f2755db5942601fa062cc248aaa153313d3&call=totalSupply&decimals=18`
+
