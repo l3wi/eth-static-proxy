@@ -7,6 +7,9 @@
 require('dotenv').config()
 const { send } = require('micro')
 const query = require('micro-query')
+const rateLimit = require('micro-ratelimit')
+const cors = require('micro-cors')()
+
 const fetch = require('isomorphic-fetch')
 const ethers = require('ethers')
 
@@ -53,25 +56,27 @@ const isProxy = async (address) => {
   return ethers.utils.hexStripZeros(data)
 }
 
-module.exports = async (req, res) => {
-  // Get query string
-  const { address, call, decimals } = query(req)
-  try {
-    // Fetch ABI
-    const abi = await getABI(address)
-    // Setup Contract Instance
-    const caller = new ethers.Contract(address, abi, provider)
-    // Query requested call
-    const data = await caller[call]()
+module.exports = cors(
+  rateLimit({ headers: true }, async (req, res) => {
+    // Get query string
+    const { address, call, decimals } = query(req)
+    try {
+      // Fetch ABI
+      const abi = await getABI(address)
+      // Setup Contract Instance
+      const caller = new ethers.Contract(address, abi, provider)
+      // Query requested call
+      const data = await caller[call]()
 
-    const response = !decimals
-      ? data.toString()
-      : ethers.utils.formatUnits(data, decimals)
+      const response = !decimals
+        ? data.toString()
+        : ethers.utils.formatUnits(data, decimals)
 
-    // Return response
-    send(res, 200, response)
-  } catch (error) {
-    console.log(error)
-    send(res, 500, error)
-  }
-}
+      // Return response
+      send(res, 200, response)
+    } catch (error) {
+      console.log(error)
+      send(res, 500, error)
+    }
+  })
+)

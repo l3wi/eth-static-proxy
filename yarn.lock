@@ -1462,6 +1462,11 @@ micro-query@^0.3.0:
   dependencies:
     qs "6.5.2"
 
+micro-ratelimit@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/micro-ratelimit/-/micro-ratelimit-0.4.0.tgz#93854d298b178d7e3afcd7557f99fd19355f611e"
+  integrity sha512-G1UsdE5rHyIdLNvwxvFz+B1KGCJAkzBxiGOl/lbS+4ezJgK9r+hnG+9D0CFvBnM+cwcnGcnc3lHw5HgBcB/avA==
+
 micro@^9.3.4:
   version "9.3.4"
   resolved "https://registry.yarnpkg.com/micro/-/micro-9.3.4.tgz#745a494e53c8916f64fb6a729f8cbf2a506b35ad"

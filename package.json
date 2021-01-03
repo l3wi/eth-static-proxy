@@ -8,7 +8,8 @@
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
     "micro-dev": "^3.0.0",
-    "micro-query": "^0.3.0"
+    "micro-query": "^0.3.0",
+    "micro-ratelimit": "^0.4.0"
   },
   "name": "eth-static-proxy",
   "version": "1.0.0",
