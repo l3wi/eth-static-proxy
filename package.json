@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ethers": "^5.0.24",
+    "ethers-multicall": "^0.1.4",
+    "flat-cache": "^3.0.4",
+    "isomorphic-fetch": "^3.0.0",
+    "micro": "^9.3.4",
+    "micro-cors": "^0.1.1",
+    "micro-dev": "^3.0.0",
+    "micro-query": "^0.3.0"
+  },
+  "name": "eth-static-proxy",
+  "version": "1.0.0",
+  "description": "A simple server to API'ify static ethereum contract calls",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "ethereum",
+    "proxy",
+    "ethers"
+  ],
+  "author": "Lewis Freiberg",
+  "license": "ISC"
+}
