@@ -15,10 +15,14 @@ const ethers = require('ethers')
 
 const { setABI, fetchABI } = require('./cache')
 
-const provider = new ethers.providers.JsonRpcProvider(
-  process.env.ETHNODE,
-  'homestead'
-)
+class StaticJsonRpcProvider extends ethers.providers.JsonRpcProvider {
+  // Stupid ass shim
+  async detectNetwork() {
+    let network = '0x1'
+    return network
+  }
+}
+const provider = new StaticJsonRpcProvider(process.env.ETHNODE)
 
 // Query Etherscan for ABI
 const getABI = async (address, res) => {
