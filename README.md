@@ -6,7 +6,7 @@ A simple project that API'ifies Ethereum contracts so they can be integrated int
 
 To use the project you need to craft URLs with the following options:
 
-- url: `proxy.blackwattle.ad/
+- url: `proxy.blackwattle.ad/`
 - contract: `0x443d2f2755db5942601fa062cc248aaa153313d3`
 - call: `totalSupply`
 - decimals: `18`
