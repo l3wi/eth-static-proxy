@@ -28,7 +28,7 @@ const provider = new StaticJsonRpcProvider(process.env.ETHNODE)
 const getABI = async (address, res) => {
   // Check if address is proxy (Slow but required if implementation changes)
   const proxy = await isProxy(address)
-  let contractAddress = proxy === ethers.constants.HashZero ? address : proxy
+  let contractAddress = proxy ? proxy : address
 
   // Exit before fetching ABI if we have cached the ABI
   const cachedABI = await fetchABI(contractAddress)
@@ -57,7 +57,9 @@ const isProxy = async (address) => {
     address,
     '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc' // bytes32(uint256(keccak256('eip1967.proxy.implementation')) - 1)
   )
-  return ethers.utils.hexStripZeros(data)
+  const implementation = ethers.utils.hexStripZeros(data)
+
+  return ethers.utils.isAddress(implementation) ? implementation : null
 }
 
 module.exports = cors(
