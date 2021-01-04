@@ -21,5 +21,27 @@ This will return the requested data.
 
 *Note: if you don't want the data converted by the decimals, just remove the decimals parameter*
 
+### How to setup:
+
+In order to setup your own instance of this server, do the following:
+
+```
+git clone https://github.com/l3wi/eth-static-proxy.git
+
+cd eth-static-proxy
+
+yarn 
+```
+
+Once you'l cloned the repo and installed the required dependancies you need to setup the environment variables:
+
+```
+touch .env
+
+echo "ETHERSCAN=<YOUR-ETHERSCAN-KEY-HERE>" >> .env
+
+echo "ETHNODE=<YOUR-JSON-RPC-NODE-HERE>" >> .env
+```
+
 #### Built by [Lewi](https://twitter.com/LewisFreiberg)
 
