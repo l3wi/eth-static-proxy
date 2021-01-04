@@ -1,6 +1,6 @@
 # Ethereum Static Proxy
 
-A simple project that API'ifies Ethereum contracts so they can be integrated into other applications.
+A simple project that API'ifies Ethereum contracts so they can be integrated into other applications. Its supports vanilla contracts and those implementing [EIP-1967](https://eips.ethereum.org/EIPS/eip-1967).
 
 ### How to use:
 
